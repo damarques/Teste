@@ -3,40 +3,134 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Merlin's Potions</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid mobile">
+            <button class="navbar-toggler d-md-none one collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="burger-menu"></div>
+            </button>
+            <a class="navbar-brand logo two" href="#">
+                <img src="~/Content/Images/logo.png" />
+            </a>
+            <form class="search-wrapper form-inline my-2 my-lg-0 d-none d-md-block">
+                <i class="fas fa-search"></i>
+                <input class="form-control mr-sm-2 search-top" type="search" placeholder="Search our stock" aria-label="Search">
+            </form>
+            <div class="d-none d-md-block col-md-2 four">
+                <p class="info-header">
+                    <span>Free shipping</span>
+                    <br />
+                    on order over $50
+                </p>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+            <div class="col-1 col-md-1 three">
+                <div class="row shopping-cart-wrapper">
+                    <img src="~/Content/Images/cauldron.png" />
+                    <p class="shopping-cart">BAG: <span class="quantity"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid d-md-none">
+            <div class="w-100">
+                <p class="info-header">
+                    Free shipping on order over $50
+                </p>
+            </div>
+        </div>
+    </nav>
+    <div class="navbar-wrapper d-none d-md-block">
+        <div class="nav-desktop">
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Potions
+                </a>
+            </div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Ingredients
+                </a>
+            </div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Books
+                </a>
+            </div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Supplies
+                </a>
+            </div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Charms
+                </a>
+            </div>
+            <a class="nav-link destak">Clearance!</a>
+            <div class="login-wrapper">
+                <a href="#">Sign In</a> or <a href="#">Sign Up</a>
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="search-wrapper form-inline my-2 my-lg-0 d-block d-md-none mobile">
+            <i class="fas fa-search"></i>
+            <input class="form-control mr-sm-2 search-top" type="search" placeholder="Search our stock" aria-label="Search">
+        </form>
+        <div class="navbar-nav mr-auto d-block d-md-none">
+            <a class="nav-link" href="#">Potions</a>
+            <a class="nav-link" href="#">Ingredients</a>
+            <a class="nav-link" href="#">Books</a>
+            <a class="nav-link" href="#">Supplies</a>
+            <a class="nav-link" href="#">Charms</a>
+            <a class="nav-link destak" href="#">Clearance!</a>
+            <div class="nav-link login-wrapper">
+                <a href="#">Sign In</a> or <a href="#">Sign Up</a>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
+    <footer class="container-fluid">
+        <div class="row footer-wrapper">
+            <div class="col-12 col-md-6 two">
+                <div class="site-map d-none d-md-block">
+                    <span>COMPANY</span>
+                    <span>CONTACT US</span>
+                    <span>SHIPPING</span>
+                    <span>RETURNS</span>
+                    <span>CAREERS</span>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-tumblr"></i></a>
+                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                </div>
+                <p class="copyright">&copy; @DateTime.Now.Year Merlin's Potions. All Rights Reserved</p>
+            </div>
+            <div class="col-12 col-md-6 newsletter-wrapper one">
+                <p>Sign up for our Newsletter</p>
+                <span>Sign up for our newsletter & get exclusive discounts!</span>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="email" placeholder="Enter your email" aria-label="Email">
+                    <button class="btn btn-newsletter my-2 my-sm-0" type="submit">SUBMIT</button>
+                </form>
+            </div>
+        </div>
+    </footer>
 
+    @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/script")
     @RenderSection("scripts", required: false)
 </body>
 </html>
